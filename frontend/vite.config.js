@@ -11,9 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['balance.png', 'robots.txt'],
       manifest: {
-        name: 'My Balance App',
-        short_name: 'Balance',
-        description: 'Track your balance easily',
+        name: 'Personal Lawyer',
+        short_name: 'Vakil',
+        description: 'Your Personal Lawyer',
         theme_color: '#ffffff',
         icons: [
           {
