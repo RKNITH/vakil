@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-parchment: #f5f0e8;
+  --color-parchment-dark: #ede7d3;
+  --color-ink: #1a1208;
+  --color-ink-light: #3d2e0f;
+  --color-gold: #c8972a;
+  --color-gold-light: #e6b84a;
+  --color-gold-muted: #a67c1e;
+  --color-crimson: #8b1a1a;
+  --color-crimson-light: #b52222;
+  --color-sage: #2d4a2d;
+  --color-sage-light: #3d6b3d;
+  --color-surface: #faf7f0;
+  --color-border: #d4c5a0;
+  --color-border-dark: #b8a87a;
+  --color-muted: #7a6a4a;
+  --color-chat-user: #2c1810;
+  --color-chat-bg: #fefcf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-parchment);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-dark);
+  border-radius: 3px;
+}
+
+/* Custom selections */
+::selection {
+  background: #c8972a33;
+  color: var(--color-ink);
+}
+
+/* Markdown content styles */
+.prose-legal h1, .prose-legal h2, .prose-legal h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 600;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.prose-legal h2 {
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.25rem;
+  color: var(--color-crimson);
+}
+
+.prose-legal h3 {
+  font-size: 1rem;
+  color: var(--color-gold-muted);
+}
+
+.prose-legal p {
+  margin-bottom: 0.8em;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.prose-legal ul, .prose-legal ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.8em;
+}
+
+.prose-legal li {
+  margin-bottom: 0.3em;
+  font-size: 0.95rem;
+}
+
+.prose-legal strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.prose-legal em {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.prose-legal code {
+  font-family: var(--font-mono);
+  background: var(--color-parchment-dark);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  color: var(--color-crimson);
+}
+
+.prose-legal blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: var(--color-muted);
+  font-style: italic;
+  background: var(--color-parchment);
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.prose-legal hr {
+  border-color: var(--color-border);
+  margin: 1em 0;
+}
+
+/* Typing animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--color-gold);
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  vertical-align: text-bottom;
+}
+
+/* Fade in animation */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeSlideIn 0.3s ease-out forwards;
+}
+
+/* Shimmer for loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    var(--color-parchment) 25%, 
+    var(--color-parchment-dark) 50%, 
+    var(--color-parchment) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Sidebar transition */
+.sidebar-enter {
+  transform: translateX(-100%);
+}
+.sidebar-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease;
+}
+
+/* Gold ornament */
+.gold-ornament {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scale of justice icon animation */
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
